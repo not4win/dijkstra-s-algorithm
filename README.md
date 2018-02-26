@@ -24,9 +24,11 @@ Now let’s see the algorithm __step by step:__
 * Update distance value of all adjacent vertices of u. To update the distance values, iterate through all adjacent vertices.
 * For every adjacent vertex v, if sum of distance value of u (from source) and weight of edge u-v, is less than the distance value of v, then update the distance value of v.
 
-Example :
-If you have to travel from say node 0 to 8, you have several options(paths) to choose from.
+**Example: **
 
+![alt text](https://github.com/samyuktaprabhu/dijkstra-s-algorithm/blob/master/img1.png)
+
+If you have to travel from say node 0 to 8, you have several options(paths) to choose from.
 * One way is 0–1–6–7–8. In this case, The distance is 3+4+1+5=13 units.
 * Another way is 0–4–2–3–8. The distance is 10+6+2+2=20 units.
 * Another way may be 0–4–5–3–8. The distance is 10+3+5+2=20 units again.
@@ -39,10 +41,17 @@ Great! Let’s continue. Moving further, have a look at the graph above closely 
 You can see all the nodes are marked red, which means they are not visited. We will mark the nodes with green color as we visit them. Let’s begin then.
 
 We choose node 0 as starting node, equating v[0] to 0, mark 0 as visited, node 1 and 4 are adjacent to node 0 at distance of 3 and 10 respectively. This is how the partial graph looks like.
-Please note : ‘in’ in the image stands for infinity i.e. we are initializing all the distances to infinity initially.
+
+![alt text](https://github.com/samyuktaprabhu/dijkstra-s-algorithm/blob/master/img2.png)
+
+**NOTE**: **‘in'** in the image stands for infinity i.e. we are initializing all the distances to infinity initially.
 
 Now among node 1 and 4, since node 1 is closer to node 0, we visit node 1. Mark node 1 as visited, Now this is the important part, the distance between node 1 and node 0 is 3 but here we are not calculating the distance between a nodes adjacent to each other, we are trying to find out the shortest path from node 0 (starting node). Nodes adjacent to node 1 are 0,5,6.
 Distance from 0 to 0 via 1 is 3+3=6 but we already have calculated the distance between 0 to 0 as 0 we will not update v[0], where as node 5 is at 3+3=6 units and node 6 is at 3+4=7 units away from node 0, Obviously this value is less than infinity so we update v[5] as 6 and v[6] as 7 units.
+
+![alt text](https://github.com/samyuktaprabhu/dijkstra-s-algorithm/blob/master/img3.png)
+
+
 Similarly, the next part of the graph goes this way.
 And finally when you complete visiting all the nodes data structure, graph looks like this.
 Further, we have the code explained in parts. In the end, you can find the entire code as one single piece.
